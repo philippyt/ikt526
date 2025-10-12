@@ -1,0 +1,13 @@
+datasets
+numpy
+matplotlib
+pandas
+torch
+torchvision
+transformers
+diffusers
+Pillow
+tqdm
+dataclasses
+typing-extensions
+pathlib
