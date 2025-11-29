@@ -1,0 +1,229 @@
+{
+    "config": {
+        "model_name": "meta-llama/Llama-3.2-1B",
+        "dataset_name": "yahma/alpaca-cleaned",
+        "device": "cuda",
+        "train_size": 10000,
+        "val_size": 2000,
+        "test_size": 2000,
+        "batch_size": 8,
+        "grad_accum_steps": 2,
+        "epochs": 3,
+        "lr": 0.0002,
+        "weight_decay": 0.01,
+        "use_bf16": true,
+        "seed": 42,
+        "lora_rank": 8,
+        "lora_alpha": 16,
+        "lora_dropout": 0.05,
+        "output_dir": "outputs/checkpoints",
+        "generations_dir": "outputs/generations",
+        "plots_dir": "outputs/plots",
+        "max_length": 512,
+        "max_new_tokens": 200,
+        "report_to": "none",
+        "eval_examples": 10,
+        "sampling_examples": 10
+    },
+    "train_stats": {
+        "train_time_sec": 9382.010934829712,
+        "train_time_min": 156.36684891382853,
+        "gpu_memory_gb": 24.98135757446289
+    },
+    "summary": {
+        "base": {
+            "ppl_mean": 2.013452531864395,
+            "ppl_std": 1.3229657914247004,
+            "f1_mean": 0.1892498608444111,
+            "f1_std": 0.1666285496881676
+        },
+        "finetuned": {
+            "ppl_mean": 2.269051580478617,
+            "ppl_std": 0.5025415721801302,
+            "f1_mean": 0.24976875942956314,
+            "f1_std": 0.15633103120637742
+        }
+    },
+    "examples": [
+        {
+            "example_id": 0,
+            "instruction": "Here is a 2D vector [4, 5]. Convert it to a 3D vector.",
+            "input": "[4, 5]",
+            "reference_output": "To convert a 2D vector to a 3D vector, you can simply add a third dimension with a value of 0. In this case, the 2D vector [4, 5] can be converted to the 3D vector [4, 5, 0].",
+            "base_output": "[4, 5, 0]\nExplanation: The 3D vector is [4, 5, 0] because the 3D vector is the sum of the 2D vector and the 3D vector.",
+            "finetuned_output": "To convert a 2D vector to a 3D vector, you can use the following formula:\n\nx = 4\ny = 5\nz = 0\n\nSo, the 3D vector would be [4, 5, 0]. \n\nNote that the order of the components in the 3D vector is important. The first component is the x-coordinate, the second component is the y-coordinate, and the third component is the z-coordinate. \n\nIn summary, the 2D vector [4, 5] can be converted to a 3D vector by using the formula x = 4, y = 5, and z = 0. The resulting 3D vector is [4, 5, 0]. \n\nI hope this helps! Let me know if you have any other questions. Thank you. \ud83d\ude4f\ud83c\udffc. \ud83c\udf3b\ud83c\udf3b\ud83c\udf3b\ud83c\udf3b\ud83c\udf3b\ud83c\udf3b",
+            "base_metrics": {
+                "perplexity": 5.875747778240869,
+                "f1": 0.3692307692307692,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 1.9982997153034898,
+                "f1": 0.40764331210191085,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 1,
+            "instruction": "Come up with a slogan to describe a new lipstick product.",
+            "input": "",
+            "reference_output": "\"Unleash your inner beauty with our vibrant, long-lasting lipstick!\"",
+            "base_output": "The slogan for the new lipstick product is \"The lipstick that makes you look like a million dollars.\"\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes",
+            "finetuned_output": "\"Flawless on the lips, every time.\" - A bold and confident statement that highlights the product's ability to enhance the wearer's natural beauty. The slogan conveys a sense of confidence and self-assurance, making it an ideal choice for a new lipstick product. The use of the word \"flawless\" adds a touch of elegance and sophistication, while the inclusion of the word \"every time\" emphasizes the product's ability to deliver a flawless finish every time. Overall, the slogan is a powerful and memorable way to describe a new lipstick product. It's a bold and confident statement that highlights the product's ability to enhance the wearer's natural beauty. The slogan is sure to catch the attention of lipstick enthusiasts and make them want to try the new product. It's a catchy and memorable slogan that perfectly captures the essence of the new lipstick product. So, \"Flawless on the lips, every time.\" - A bold and confident statement that highlights the product's ability to enhance",
+            "base_metrics": {
+                "perplexity": 1.5219615556186337,
+                "f1": 0.0,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 3.1827577298161587,
+                "f1": 0.0,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 2,
+            "instruction": "Discuss the role of artificial intelligence in healthcare.",
+            "input": "",
+            "reference_output": "Artificial intelligence (AI) is playing an increasingly important role in the healthcare industry, helping to improve patient care and transform medical processes. One primary benefit of AI in healthcare is its ability to analyze large amounts of data quickly and accurately. This can be used to improve medical diagnosis, detect diseases at an early stage, and predict health outcomes.\n\nOne of the main areas in which AI is being used in healthcare is in medical imaging. AI algorithms are being developed to analyze diagnostic images, such as X-rays and MRIs, to identify patterns and help doctors make more accurate diagnoses. AI can also be used to help plan and execute surgical procedures, as well as to develop personalized patient treatment plans.\n\nAI-powered virtual health assistants are being developed to offer patients 24/7 assistance, providing information about their health conditions, reminding them to take medications, and even monitoring their overall health. These virtual assistants use natural language processing and machine learning algorithms to understand patient queries and provide relevant information.\n\nAI can also help to streamline clinical trial processes. By using machine learning algorithms, AI can analyze patient data to identify the best candidates for clinical trials. This can help to speed up the drug development process and bring new treatments to the market faster.\n\nAI is also being used to improve healthcare management and administration. AI algorithms can help to optimize hospital workflows, predict patient demand, and improve resource allocation. This can help to reduce costs, as well as improve the overall patient experience.\n\nIn summary, the role of AI in healthcare is significant, and its use is expanding rapidly. AI has the potential to revolutionize the way healthcare is delivered, improving patient outcomes, and making the healthcare system more efficient and effective.",
+            "base_output": "Artificial intelligence (AI) is a branch of computer science that uses algorithms to simulate human intelligence. AI is used in healthcare to help doctors make better decisions, improve patient outcomes, and reduce costs. AI can be used to analyze large amounts of data, identify patterns, and make predictions about patient health. AI can also be used to automate tasks such as scheduling appointments, billing, and prescribing medications. AI can also be used to improve the quality of healthcare by identifying and addressing potential errors and improving the efficiency of healthcare systems. AI can also be used to personalize healthcare by tailoring treatments to individual patients\u2019 needs and preferences. AI can also be used to improve the safety and efficiency of healthcare by identifying and addressing potential safety and efficiency issues. AI can also be used to improve the quality of healthcare by identifying and addressing potential errors and improving the efficiency of healthcare systems. AI can also be used to personalize healthcare by tailoring treatments to individual patients\u2019 needs and preferences. AI can also be used to improve the",
+            "finetuned_output": "Artificial intelligence (AI) has the potential to revolutionize healthcare by improving patient outcomes, reducing costs, and enhancing the quality of care. Here are some ways in which AI is being used in healthcare:\n\n1. Predictive analytics: AI can be used to predict the likelihood of a patient developing a certain disease or condition, allowing healthcare providers to take preventive measures and improve patient outcomes.\n\n2. Personalized medicine: AI can be used to develop personalized treatment plans for patients based on their genetic makeup, medical history, and other factors. This can help improve the effectiveness of treatment and reduce the risk of side effects.\n\n3. Remote monitoring: AI can be used to monitor patients remotely, allowing healthcare providers to track their vital signs and medical conditions, and intervene early if necessary.\n\n4. Robotic surgery: AI can be used to assist with robotic surgery, allowing surgeons to perform more complex procedures with greater accuracy and precision.\n\n5. Telemedicine: AI can be used to improve the efficiency and effectiveness of tele",
+            "base_metrics": {
+                "perplexity": 1.9574484052119936,
+                "f1": 0.4067796610169491,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 1.8679168775115413,
+                "f1": 0.3774403470715835,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 3,
+            "instruction": "Given a list of stock tickers, calculate their current share price.",
+            "input": "AAPL, GOOGL",
+            "reference_output": "I'm sorry, but as an AI I can't provide real-time stock prices. The prices of stocks fluctuate every second while the market is open, and I would need an API integration or another service to get you accurate information. Can I help you with something else?",
+            "base_output": "1.00\nExplanation: \nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GOOGL is 1.00\nThe current price of AAPL is 1.00\nThe current price of GO",
+            "finetuned_output": "The current share price of Apple Inc. (AAPL) is $147.00 and the current share price of Google Inc. (GOOGL) is $1,200.00. \n\nNote that these are the current prices as of the time of writing, and may change over time. You can use a stock market website or app to check the latest share prices. Additionally, you can use a financial calculator or online tool to calculate the current share price of a stock. For example, you can use the formula: current share price = (price per share * number of shares) / total number of shares. \n\nIt's important to note that the share price of a stock can fluctuate over time, and the current price may not be the most accurate representation of the stock's value. Additionally, the share price of a stock may be affected by factors such as market conditions, company news, and investor sentiment. It's always a good idea to do your own research and consider multiple",
+            "base_metrics": {
+                "perplexity": 1.5600589641675724,
+                "f1": 0.03797468354430379,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 3.2571840609260296,
+                "f1": 0.15533980582524273,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 4,
+            "instruction": "Create a funny slogan for a new ice cream shop.",
+            "input": "",
+            "reference_output": "\"Scoops so good, they'll melt your heart before they melt in your mouth!\"",
+            "base_output": "I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm",
+            "finetuned_output": "\"Taste the Rainbow, and let your imagination run wild!\" - A new ice cream shop that offers a wide variety of flavors and toppings, all made with the freshest ingredients. Come and indulge in the sweetest treat of them all! #IceCreamSquad #TasteTheRainbow #ImaginationRunsWild. #NewIceCreamShop #SweetTreats #FreshestIngredients. #TasteTheRainbow #ImaginationRunsWild. #NewIceCreamShop #SweetTreats #FreshestIngredients. #TasteTheRainbow #ImaginationRunsWild. #NewIceCreamShop #SweetTreats #FreshestIngredients. #TasteTheRainbow #ImaginationRunsWild. #NewIceCreamShop #SweetTreats #FreshestIngredients. #TasteTheRainbow #ImaginationRunsWild. #NewIceCreamShop #SweetTreats #FreshestIngredients. #TasteTheRainbow",
+            "base_metrics": {
+                "perplexity": 1.2744312491634178,
+                "f1": 0.0,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.221816197385658,
+                "f1": 0.049999999999999996,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 5,
+            "instruction": "Convert the following currency to its equivalent in US dollars (USD).",
+            "input": "1500 Euros",
+            "reference_output": "As of December 19, 2021, 1500 Euros is equivalent to 1687.50 US dollars according to the currency exchange rate at the time of writing. However, currency exchange rates fluctuate continuously and the actual conversion rate may differ from the current one. It is recommended to check the current exchange rate at the time of the conversion for the most accurate results.",
+            "base_output": "1500 Euros = 1,500.00 USD\nExplanation: 1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros = 1,500.00 USD\n1500 Euros =",
+            "finetuned_output": "1500 Euros is equivalent to approximately 1,500 USD. However, the exchange rate may vary depending on the current market conditions. You can use a currency converter to get the current exchange rate. Here is a link to a currency converter: https://www.xe.com/currencyconverter/convert/?From=EUR&To=USD. Alternatively, you can use a currency calculator to get the current exchange rate. Here is a link to a currency calculator: https://www.xe.com/currencyconverter/convert/?From=EUR&To=USD. Please note that the exchange rate may change over time, so it is recommended to check the latest exchange rate before making any financial transactions. Good luck! \ud83e\udd11. \ud83d\udcca. \ud83d\udcc8. \ud83d\udcc9. \ud83d\udcc8. \ud83d\udcca. \ud83d\udcc8. \ud83d\udcc9. \ud83d\udcc8. \ud83d\udcca. \ud83d\udcc8. \ud83d\udcc9. \ud83d\udcc8. \ud83d\udcca. \ufffd",
+            "base_metrics": {
+                "perplexity": 1.4215655921685753,
+                "f1": 0.027586206896551724,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.2029081186437653,
+                "f1": 0.3373493975903614,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 6,
+            "instruction": "Explain why the laws of supply and demand are important.",
+            "input": "",
+            "reference_output": "The laws of supply and demand are fundamental principles that govern the dynamics of market economies. They are important because they help us understand how prices are determined and how they change over time. \n\nThe law of demand states that when the price of a good or service increases, the quantity of that good or service demanded decreases, all else being equal. Conversely, when the price decreases, the quantity demanded increases. That is because people generally prefer to buy more goods and services at lower prices. \n\nThe law of supply, on the other hand, states that when the price of a good or service increases, the quantity of that good or service supplied also increases, all else being equal. Conversely, when the price decreases, the quantity supplied decreases. This relationship holds because higher prices provide an incentive for firms to produce more goods and services in order to make more profit.\n\nTogether, these two laws help determine the equilibrium price and quantity of a good or service in a market. The equilibrium price is the price at which the quantity that consumers want to buy equals the quantity that firms want to sell. At this point, the market is balanced and there are no shortages or surpluses.\n\nThe laws of supply and demand also play a crucial role in allocating resources efficiently in a market economy. When there is an increase in demand for a good or service, its price typically rises, leading firms to produce more of it. Conversely, when there is a decrease in demand, its price falls, causing firms to produce less of it. This dynamic ensures that resources are used efficiently and that goods and services are produced in quantities that match consumer preferences.\n\nIn conclusion, the laws of supply and demand are important because they help us understand how prices are determined in a market economy, and how these prices change in response to changes in demand and supply. These laws also play a crucial role in allocating resources efficiently and ensuring that markets function effectively.",
+            "base_output": "The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time.",
+            "finetuned_output": "The laws of supply and demand are important because they provide a framework for understanding the relationship between the quantity of a good or service that is available for sale and the price at which it is sold. These laws are based on the principle that the quantity of a good or service that is available for sale is determined by the demand for it, and the price at which it is sold is determined by the supply of it.\n\nThe law of supply states that as the quantity of a good or service that is available for sale increases, the price at which it is sold will decrease. This is because as the quantity of a good or service increases, the number of buyers increases, and the demand for it increases. This means that the price at which the good or service is sold will decrease as the quantity of it increases.\n\nThe law of demand states that as the quantity of a good or service that is available for sale decreases, the price at which it is sold will increase. This is because as the quantity of",
+            "base_metrics": {
+                "perplexity": 1.318177367179488,
+                "f1": 0.424015009380863,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 1.729773070432974,
+                "f1": 0.4641509433962264,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 7,
+            "instruction": "Write a code that sends a reminder email",
+            "input": "Target Date: August 15, 2022\n\nSubject: Greeting Message",
+            "reference_output": "Here is a code that sends a reminder email using Python's smtplib and SSL:\n\n```python\nimport smtplib, ssl\nfrom datetime import datetime, timedelta\nfrom email.message import EmailMessage\n\nsender_email = \"<Sender's Email>\"\nreceiver_email = \"<Receiver's Email>\"\ndate_entry = 'August 15, 2022'\npassword = input(\"Type your password and press enter: \")\ntext = 'This is a reminder message'\n\ndef send_reminder(target_date, subject):\n    # calculate time to sleep before sending the reminder\n    target_datetime = datetime.strptime(target_date, '%B %d, %Y')\n    now = datetime.now()\n    wait_seconds = (target_datetime - now).total_seconds()\n\n    # sleep for the time gap between now\n    time.sleep(int(wait_seconds))\n    \n    # Create the email message\n    message = EmailMessage()\n    message.set_content(text)\n    message['Subject'] = subject\n    message['From'] = sender_email\n    message['To'] = receiver_email\n    \n    # Send the email\n    context = ssl.create_default_context()\n    with smtplib.SMTP_SSL(\"smtp.gmail.com\", 465, context=context) as server:\n        server.login(sender_email, password)\n        server.send_message(message)\n        \n    print('Email sent successfully')\n    \nsend_reminder(target_date, subject)\n```\nWith this code, we can schedule a reminder email by inputting the `target_date` and `subject` of the reminder email. The program calculates the time difference between the `target_date` and the current time and waits for that amount of time before sending the email. \n\nNote that you need to provide a valid `sender_email` and `receiver_email` before running the program. You should also input the password of the sender's email when prompted. Additionally, make sure that you've allowed less secure apps to access the sender's email account.",
+            "base_output": "Greetings from the team at [Company Name]!\n\nDear [Name],\n\nWe hope you are doing well. We would like to remind you that your [Target Date] is approaching. Please make sure to complete your tasks and submit your work on time.\n\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you.\n\nThank you for your cooperation and understanding.\n\nBest regards,\n[Company Name]\n\nOutput: Greetings from the team at [Company Name]!\n\nDear [Name],\n\nWe hope you are doing well. We would like to remind you that your [Target Date] is approaching. Please make sure to complete your tasks and submit your work on time.\n\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you.\n\nThank you for your cooperation and understanding.\n\nBest regards,\n[Company Name]",
+            "finetuned_output": "Hey there! Just a quick reminder that your August 15th deadline is approaching. Please make sure to complete your project by then to avoid any last-minute stress. If you have any questions or concerns, don't hesitate to reach out to your supervisor or contact me for assistance. I'm here to help you achieve your goals. Have a great day! \n\nBest regards,\n[Your Name] \n[Your Email Address] \n\n[Date] [Time] [Subject] [Body of Email] \n\n[Signature] [Your Name] \n[Your Email Address] \n\n[Date] [Time] [Signature] [Your Name] \n[Your Email Address] \n\n[Date] [Time] [Signature] [Your Name] \n[Your Email Address] \n\n[Date] [Time] [Signature] [Your Name] \n[Your Email Address] \n\n[Date] [Time] [Signature] [Your Name] \n[Your Email Address] \n\n[Date] [Time",
+            "base_metrics": {
+                "perplexity": 2.324663782708059,
+                "f1": 0.116991643454039,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.1769802066604194,
+                "f1": 0.09146341463414634,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 8,
+            "instruction": "Describe how you would use social media as a musician.",
+            "input": "",
+            "reference_output": "As a musician, I would use social media in several ways to promote my music and connect with my audience.\n\nFirst, I would create social media profiles on various platforms such as Facebook, Twitter, Instagram, and YouTube. This would allow me to reach out to a wider audience and make it easier for people to find my music and content.\n\nSecondly, I would consistently share my music, updates, and behind-the-scenes content on my social media pages. This means sharing links to my music, videos of me performing or recording, pictures from gigs, and snippets of upcoming releases. By sharing this type of content, I would be keeping my followers engaged and providing them with exclusive insights into my music-making process.\n\nI would also use social media to connect with my audience and promote interaction. For instance, I could host Q&A sessions, hold contests, and engage in conversations with my followers. This would help me understand what my audience wants, and how I can improve as a musician.\n\nFinally, I would use social media to collaborate with other musicians and industry professionals. This could involve sharing each other\u2019s content, collaborating on projects, or simply networking. By doing this, I would not only be promoting my music to a broader audience but also building relationships within the industry.\n\nOverall, social media can be a powerful tool for a musician looking to promote their music, engage with their audience, and build their brand online.",
+            "base_output": "I would use social media as a musician to promote my music. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large audience. I would use social media to promote my music because it is a great way to reach a large",
+            "finetuned_output": "As a musician, social media can be a powerful tool for promoting your music, connecting with fans, and building a community around your music. Here are some ways you can use social media as a musician:\n\n1. Use social media to promote your music: Social media is a great way to promote your music. You can use platforms like Instagram, Twitter, and Facebook to share updates about your music, tour dates, and new releases. You can also use hashtags to reach a wider audience and engage with your fans.\n\n2. Connect with fans: Social media is a great way to connect with your fans. You can use platforms like Instagram, Twitter, and Facebook to share photos and videos of your performances, backstage, and behind the scenes. You can also use these platforms to engage with your fans, answer their questions, and share your thoughts and experiences.\n\n3. Build a fan base: Social media is a great way to build a fan base. You can use platforms like Instagram, Twitter, and",
+            "base_metrics": {
+                "perplexity": 1.4190675485932571,
+                "f1": 0.3194444444444444,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 1.858549265988231,
+                "f1": 0.3649635036496351,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 9,
+            "instruction": "List three different facts about Pandas.",
+            "input": "",
+            "reference_output": "1. Pandas are members of the bear family and are native to the bamboo forests of China: Pandas belong to the family Ursidae, which includes many other species of bear such as polar bears and brown bears. They are found almost exclusively in south-central China where they live in the bamboo forests and subsist almost entirely on bamboo shoots and leaves.\n\n2. Pandas have a unique digestive system that is adapted for their bamboo-filled diet: A panda's digestive system is adapted to process the cellulose-rich diet of bamboo. Their digestive tracts contain special bacteria that help to break down the tough cellulose and extract as much nutrition as possible. They also possess an extended large intestine, which allows them to more thoroughly digest their food.\n\n3. Pandas are endangered with a population of around 1,864 in the wild: The IUCN Red List classifies the panda as an endangered species, with an estimated population of around 1,864 individuals in the wild as of 2014. Their numbers have declined due to several factors, including habitat loss, fragmentation, and degradation, as well as poaching. However, conservation efforts, including the protection of panda habitat and the establishment of breeding programs, have led to an increase in the population over the past decade.",
+            "base_output": "1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of",
+            "finetuned_output": "1. Pandas are a species of bear native to China and are known for their intelligence, social behavior, and ability to communicate through vocalizations and body language.\n2. Pandas are solitary animals, meaning they live in groups but do not form social hierarchies or live in colonies. They are also known for their unique mating habits, where they will mate for life and raise their young together.\n3. Pandas are herbivores, meaning they eat only plants. They are known for their ability to adapt to different environments and thrive in a variety of habitats, including forests, grasslands, and even urban areas. They are also known for their intelligence and ability to learn from their environment. Pandas are also known for their intelligence and ability to learn from their environment. They are also known for their intelligence and ability to learn from their environment. They are also known for their intelligence and ability to learn from their environment. They are also known for their intelligence and ability to learn from",
+            "base_metrics": {
+                "perplexity": 1.4614030755920842,
+                "f1": 0.1904761904761905,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.194330562117903,
+                "f1": 0.24933687002652521,
+                "qualitative_score": null
+            }
+        }
+    ]
+}
