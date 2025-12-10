@@ -1,0 +1,231 @@
+{
+    "config": {
+        "hf_model": "meta-llama/Llama-3.2-1B",
+        "dataset": "yahma/alpaca-cleaned",
+        "device": "cuda",
+        "train_size": 10000,
+        "val_size": 2000,
+        "test_size": 2000,
+        "batch_size": 8,
+        "grad_accum_steps": 2,
+        "epochs": 3,
+        "lr": 0.0002,
+        "weight_decay": 0.01,
+        "use_bf16": true,
+        "seed": 42,
+        "lora_rank": 8,
+        "lora_alpha": 16,
+        "lora_dropout": 0.05,
+        "output_dir": "outputs/checkpoints",
+        "generations_dir": "outputs/generations",
+        "plots_dir": "outputs/plots",
+        "max_length": 512,
+        "max_new_tokens": 200,
+        "report_to": "none",
+        "eval_examples": 10,
+        "sampling_examples": 10
+    },
+    "train_stats": {
+        "train_time_sec": 9725.299490213394,
+        "train_time_min": 162.0883248368899,
+        "gpu_memory_gb": 26.241172313690186,
+        "best_epoch": 3,
+        "best_val_loss": 0.42499659329652784
+    },
+    "summary": {
+        "base": {
+            "ppl_mean": 3.3512308466451244,
+            "ppl_std": 4.168436198451136,
+            "f1_mean": 0.17618393012223846,
+            "f1_std": 0.13316391130307567
+        },
+        "finetuned": {
+            "ppl_mean": 15.040589736776562,
+            "ppl_std": 21.71396875008369,
+            "f1_mean": 0.26163934746630196,
+            "f1_std": 0.16624079836643582
+        }
+    },
+    "examples": [
+        {
+            "example_id": 0,
+            "instruction": "Here is a 2D vector [4, 5]. Convert it to a 3D vector.",
+            "input": "[4, 5]",
+            "reference_output": "To convert a 2D vector to a 3D vector, you can simply add a third dimension with a value of 0. In this case, the 2D vector [4, 5] can be converted to the 3D vector [4, 5, 0].",
+            "base_output": "[4, 5, 0]\nExplanation: The 3D vector is [4, 5, 0] because the 3D vector is the sum of the 2D vector and the 3D vector.",
+            "finetuned_output": "To convert a 2D vector [4, 5] to a 3D vector, you can use the following formula:\n\n[4, 5] = [4, 5, 1]\n\nThis will give you the 3D vector [4, 5, 1].",
+            "base_metrics": {
+                "perplexity": 5.875747778240869,
+                "f1": 0.3692307692307692,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 3.1763657740904123,
+                "f1": 0.5277777777777778,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 1,
+            "instruction": "Come up with a slogan to describe a new lipstick product.",
+            "input": "",
+            "reference_output": "\"Unleash your inner beauty with our vibrant, long-lasting lipstick!\"",
+            "base_output": "The slogan for the new lipstick product is \"The lipstick that makes you look like a million dollars.\"\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes you look like a million dollars.\nThe lipstick that makes",
+            "finetuned_output": "\"Get ready to shine with the perfect blend of color and confidence with our new lipstick.\"",
+            "base_metrics": {
+                "perplexity": 1.5219615556186337,
+                "f1": 0.0,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 42.52108200006278,
+                "f1": 0.16,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 2,
+            "instruction": "Create a funny slogan for a new ice cream shop.",
+            "input": "",
+            "reference_output": "\"Scoops so good, they'll melt your heart before they melt in your mouth!\"",
+            "base_output": "I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm going to make a new ice cream shop. I'm",
+            "finetuned_output": "\"Come and get some, we've got a scoop of fun!\"",
+            "base_metrics": {
+                "perplexity": 1.2744312491634178,
+                "f1": 0.0,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 70.10541234668786,
+                "f1": 0.0,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 3,
+            "instruction": "Explain why the laws of supply and demand are important.",
+            "input": "",
+            "reference_output": "The laws of supply and demand are fundamental principles that govern the dynamics of market economies. They are important because they help us understand how prices are determined and how they change over time. \n\nThe law of demand states that when the price of a good or service increases, the quantity of that good or service demanded decreases, all else being equal. Conversely, when the price decreases, the quantity demanded increases. That is because people generally prefer to buy more goods and services at lower prices. \n\nThe law of supply, on the other hand, states that when the price of a good or service increases, the quantity of that good or service supplied also increases, all else being equal. Conversely, when the price decreases, the quantity supplied decreases. This relationship holds because higher prices provide an incentive for firms to produce more goods and services in order to make more profit.\n\nTogether, these two laws help determine the equilibrium price and quantity of a good or service in a market. The equilibrium price is the price at which the quantity that consumers want to buy equals the quantity that firms want to sell. At this point, the market is balanced and there are no shortages or surpluses.\n\nThe laws of supply and demand also play a crucial role in allocating resources efficiently in a market economy. When there is an increase in demand for a good or service, its price typically rises, leading firms to produce more of it. Conversely, when there is a decrease in demand, its price falls, causing firms to produce less of it. This dynamic ensures that resources are used efficiently and that goods and services are produced in quantities that match consumer preferences.\n\nIn conclusion, the laws of supply and demand are important because they help us understand how prices are determined in a market economy, and how these prices change in response to changes in demand and supply. These laws also play a crucial role in allocating resources efficiently and ensuring that markets function effectively.",
+            "base_output": "The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time. The laws of supply and demand are important because they help us understand how the price of a good or service changes over time.",
+            "finetuned_output": "The laws of supply and demand are important because they govern the relationship between the quantity of a good or service that is available for sale and the price at which it can be bought. These laws are based on the principle of scarcity, which states that there is always a limited amount of a good or service that can be produced or consumed, and that the price of that good or service will always be higher than the price of other goods or services that are available.\n\nThe laws of supply and demand work by balancing the supply and demand for a good or service. When the supply of a good or service is greater than the demand, the price of that good or service will tend to fall. This is because there is more supply than demand, and the price of the good or service will drop as more people are willing to buy it.\n\nOn the other hand, when the demand for a good or service is greater than the supply, the price of that good or service will tend to rise. This is because",
+            "base_metrics": {
+                "perplexity": 1.318177367179488,
+                "f1": 0.424015009380863,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.0238466849223475,
+                "f1": 0.4877126654064272,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 4,
+            "instruction": "Write a code that sends a reminder email",
+            "input": "Target Date: August 15, 2022\n\nSubject: Greeting Message",
+            "reference_output": "Here is a code that sends a reminder email using Python's smtplib and SSL:\n\n```python\nimport smtplib, ssl\nfrom datetime import datetime, timedelta\nfrom email.message import EmailMessage\n\nsender_email = \"<Sender's Email>\"\nreceiver_email = \"<Receiver's Email>\"\ndate_entry = 'August 15, 2022'\npassword = input(\"Type your password and press enter: \")\ntext = 'This is a reminder message'\n\ndef send_reminder(target_date, subject):\n    # calculate time to sleep before sending the reminder\n    target_datetime = datetime.strptime(target_date, '%B %d, %Y')\n    now = datetime.now()\n    wait_seconds = (target_datetime - now).total_seconds()\n\n    # sleep for the time gap between now\n    time.sleep(int(wait_seconds))\n    \n    # Create the email message\n    message = EmailMessage()\n    message.set_content(text)\n    message['Subject'] = subject\n    message['From'] = sender_email\n    message['To'] = receiver_email\n    \n    # Send the email\n    context = ssl.create_default_context()\n    with smtplib.SMTP_SSL(\"smtp.gmail.com\", 465, context=context) as server:\n        server.login(sender_email, password)\n        server.send_message(message)\n        \n    print('Email sent successfully')\n    \nsend_reminder(target_date, subject)\n```\nWith this code, we can schedule a reminder email by inputting the `target_date` and `subject` of the reminder email. The program calculates the time difference between the `target_date` and the current time and waits for that amount of time before sending the email. \n\nNote that you need to provide a valid `sender_email` and `receiver_email` before running the program. You should also input the password of the sender's email when prompted. Additionally, make sure that you've allowed less secure apps to access the sender's email account.",
+            "base_output": "Greetings from the team at [Company Name]!\n\nDear [Name],\n\nWe hope you are doing well. We would like to remind you that your [Target Date] is approaching. Please make sure to complete your tasks and submit your work on time.\n\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you.\n\nThank you for your cooperation and understanding.\n\nBest regards,\n[Company Name]\n\nOutput: Greetings from the team at [Company Name]!\n\nDear [Name],\n\nWe hope you are doing well. We would like to remind you that your [Target Date] is approaching. Please make sure to complete your tasks and submit your work on time.\n\nIf you have any questions or concerns, please do not hesitate to contact us. We are here to help you.\n\nThank you for your cooperation and understanding.\n\nBest regards,\n[Company Name]",
+            "finetuned_output": "Here is a reminder email to you:\n\nSubject: Greeting Message\n\nDear [Recipient],\n\nPlease remember to send in your [Task] by [Target Date] to ensure a smooth and successful project completion. We appreciate your hard work and look forward to seeing the results.\n\nBest regards,\n[Your Name]",
+            "base_metrics": {
+                "perplexity": 2.324663782708059,
+                "f1": 0.116991643454039,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 7.698177453999742,
+                "f1": 0.10687022900763359,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 5,
+            "instruction": "List three different facts about Pandas.",
+            "input": "",
+            "reference_output": "1. Pandas are members of the bear family and are native to the bamboo forests of China: Pandas belong to the family Ursidae, which includes many other species of bear such as polar bears and brown bears. They are found almost exclusively in south-central China where they live in the bamboo forests and subsist almost entirely on bamboo shoots and leaves.\n\n2. Pandas have a unique digestive system that is adapted for their bamboo-filled diet: A panda's digestive system is adapted to process the cellulose-rich diet of bamboo. Their digestive tracts contain special bacteria that help to break down the tough cellulose and extract as much nutrition as possible. They also possess an extended large intestine, which allows them to more thoroughly digest their food.\n\n3. Pandas are endangered with a population of around 1,864 in the wild: The IUCN Red List classifies the panda as an endangered species, with an estimated population of around 1,864 individuals in the wild as of 2014. Their numbers have declined due to several factors, including habitat loss, fragmentation, and degradation, as well as poaching. However, conservation efforts, including the protection of panda habitat and the establishment of breeding programs, have led to an increase in the population over the past decade.",
+            "base_output": "1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of animal that lives in the rainforest.\nAnswer: 1. Pandas are a type of animal. 2. Pandas are a type of mammal. 3. Pandas are a type of",
+            "finetuned_output": "1. Pandas are a species of bear native to China and are known for their distinctive black and white fur. \n2. Pandas are solitary animals and are found in groups of only a few individuals. \n3. Pandas are known for their intelligence and are able to solve complex problems, such as finding food and avoiding predators.",
+            "base_metrics": {
+                "perplexity": 1.4614030755920842,
+                "f1": 0.1904761904761905,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 3.5420508032430584,
+                "f1": 0.24242424242424246,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 6,
+            "instruction": "Generate an essay about the importance of physical education in schools.",
+            "input": "",
+            "reference_output": "Physical education is an integral part of the modern school curriculum, and its importance cannot be overemphasized. Over the years, physical education has been seen as a dispensable subject, with its true purposes and benefits often ignored. But as the world embraces physical fitness, the role of physical education in schools has become even more impactful, particularly in shaping the habits and behaviors that promote a healthy lifestyle.\n\nOne of the most obvious reasons why physical education should be an essential part of the school curriculum is the positive impact it has on students' health. With the alarming rates of childhood obesity and related diseases, it is particularly necessary for children to engage in physical activities that promote healthy body weight and cardiovascular fitness. Physical education classes provide students with the opportunity to participate in various sporting and recreational activities that expose them to a healthy lifestyle, equipping them with the knowledge and skills necessary to engage in regular physical activity.\n\nApart from the physical benefits, physical education also plays an essential role in the psycho-social development of students. Physical activity has been linked to reduced anxiety and depression, improved cognitive function, and enhanced self-esteem. As such, participation in physical education classes provides students with the opportunity to relieve stress and promote mental wellness, leading to better academic performance and improved overall wellbeing.\n\nThe skills learned and developed through physical education go beyond the physical. The subject promotes the development of life skills such as communication, teamwork, and problem-solving. Students learn to work together to achieve a common goal, to respect and appreciate the diversity of talents and abilities, and to develop leadership and decision-making skills. These lifetime skills are essential for success in all areas of life, and physical education provides a platform for their development.\n\nFurthermore, physical education serves as an avenue to introduce students to a variety of sports and physical activities, promoting a culture of lifelong physical activity. Students who participate in school-based physical education programs are more likely to continue with physical activity in adulthood, reducing their risk of chronic diseases, such as cardiovascular disease, diabetes, and obesity.\n\nIn conclusion, the importance of physical education in schools cannot be overstated. It plays an essential role in promoting students' physical, psychological, and social wellbeing. The lifelong skills and habits acquired through participation in physical education translate to healthier, more productive members of society. It is therefore imperative that physical education be given its due recognition as an essential part of the school curriculum.",
+            "base_output": "Physical education is important in schools because it helps students develop their physical skills, improve their health, and learn how to be active. Physical education also helps students learn how to work as a team and how to cooperate with others. Physical education is important in schools because it helps students develop their physical skills, improve their health, and learn how to be active. Physical education also helps students learn how to work as a team and how to cooperate with others. Physical education is important in schools because it helps students develop their physical skills, improve their health, and learn how to be active. Physical education also helps students learn how to work as a team and how to cooperate with others. Physical education is important in schools because it helps students develop their physical skills, improve their health, and learn how to be active. Physical education also helps students learn how to work as a team and how to cooperate with others. Physical education is important in schools because it helps students develop their physical skills, improve their health, and",
+            "finetuned_output": "Physical education is an essential part of a well-rounded education, and it plays a crucial role in the development of a healthy and active lifestyle. It is a vital component of a child's education, and it helps to foster a love for physical activity and a healthy lifestyle. Physical education is not just about physical fitness, but it also teaches children the importance of teamwork, cooperation, and self-discipline. It helps to develop a child's physical, mental, and emotional well-being, and it can also help to prevent the development of chronic diseases such as obesity and diabetes.\n\nPhysical education is an important part of a child's education, and it helps to develop their physical, mental, and emotional well-being. It is a vital component of a well-rounded education, and it helps to foster a love for physical activity and a healthy lifestyle. Physical education is not just about physical fitness, but it also teaches children the importance of teamwork, cooperation, and self-discipline. It helps to develop a child's",
+            "base_metrics": {
+                "perplexity": 1.429750566448063,
+                "f1": 0.25375626043405675,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 2.0959355144943643,
+                "f1": 0.3018867924528302,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 7,
+            "instruction": "Write a simile using the word \"climb\".",
+            "input": "",
+            "reference_output": "\"Reaching the top of his goals felt like climbing a mountain, exhilarating and satisfying after a long and arduous journey.\"",
+            "base_output": "The mountain is like a giant tree.\nAnswer: The mountain is like a giant tree.",
+            "finetuned_output": "The sun was like a mountain, rising high above the clouds, and the wind was like a gust of wind, blowing through the trees, making the leaves dance and sway.",
+            "base_metrics": {
+                "perplexity": 15.214093804444358,
+                "f1": 0.17142857142857143,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 8.166169912567652,
+                "f1": 0.32,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 8,
+            "instruction": "Name a famous scientist in the field of genetics.",
+            "input": "",
+            "reference_output": "One famous scientist in the field of genetics is Gregor Mendel, who is often referred to as the \"father of genetics\" due to his work studying inheritance patterns in pea plants.",
+            "base_output": "Gregor Mendel\nGregor Mendel was a scientist who discovered the laws of inheritance. He was born in 1822 in the town of Brno, in what is now the Czech Republic. He was a monk at the time of his birth, and he was ordained a priest in 1843. He was a monk for 20 years, and he was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the University of Vienna for 30 years. He was a professor of botany at the",
+            "finetuned_output": "One famous scientist in the field of genetics is Francis Crick, who was a British biochemist and a Nobel Prize winner.",
+            "base_metrics": {
+                "perplexity": 1.6694596313076429,
+                "f1": 0.11398963730569948,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 9.776680409528904,
+                "f1": 0.3846153846153846,
+                "qualitative_score": null
+            }
+        },
+        {
+            "example_id": 9,
+            "instruction": "Describe the sound an owl makes.",
+            "input": "",
+            "reference_output": "An owl makes a distinct hooting sound, which is often described as a \"hoot\" or \"whoo-whoo\" or \"whoo-hoo\" sound. This haunting call can vary in pitch, volume, and the number of hoots depending on the species of owl and its individual traits. Some owls will also make other vocals, such as screeches or whistles, but the classic hoot is the most iconic and commonly recognized sound of an owl.",
+            "base_output": "The owl makes a sound that is called a hoot. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is made by the owl to call to its mate. The hoot is a sound that is",
+            "finetuned_output": "An owl makes a variety of sounds, including hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting, hooting",
+            "base_metrics": {
+                "perplexity": 1.422619655748629,
+                "f1": 0.12195121951219512,
+                "qualitative_score": null
+            },
+            "finetuned_metrics": {
+                "perplexity": 1.300176468168491,
+                "f1": 0.0851063829787234,
+                "qualitative_score": null
+            }
+        }
+    ]
+}
